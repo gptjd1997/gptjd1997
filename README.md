@@ -1,6 +1,6 @@
-#자바 스크립트
+# 자바 스크립트
 
-##Optional Chaining
+### Optional Chaining
 
 ```
 const person = {
