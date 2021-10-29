@@ -28,16 +28,24 @@
 >     watch,
 >     formState: { errors },
 >   } = useForm();
+> const onSubmitValid = (data: any) => {
+>   console.log(data);
+> };
+>
+> const onSubmitInvalid = (data: any) => {
+>   console.log(data);
+> };
 > 
-> <form onSubmit={handleSubmit(onSubmit)}>
+> 
+> <form onSubmit={handleSubmit(onSubmitValid, onSubmitInvalid)}>
 >   <input
->             {...register("user", { required: true })}
+>             {...register("user", { required: true (or required: "이름 또는 이메일을 입력하세요" >> 유효성 검사가 실패 할 시 오브젝트에 전송 될 에러 메세지) })}
 >             type="text"
 >             placeholder="Placeholder"
 >           />
 ></form>
 >
-> // onSubmit >> Submit 시 실행할 함수>  
+> //(onSubmitValid = 유효성 검증이 완료 될 시 , onSubmitInvalid = 유효성 검증이 실패 할 시 )
 > // user = 네임
 > // required = 필수항목 지정 ox (최소 글자수, 정규식 지정 등 여러 유효성 검사를 할 수 있음 https://react-hook-form.com/kr/get-started/#Applyvalidation 참고)
 
